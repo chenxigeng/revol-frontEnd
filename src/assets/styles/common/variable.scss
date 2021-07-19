@@ -1,0 +1,5 @@
+@function px2($value) {
+  @return unquote($value + 'px');
+}
+
+$mainColor: #f00;
