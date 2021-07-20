@@ -16,13 +16,20 @@ module.exports = {
       {
         test: /\.scss/,
         use: ['style-loader','css-loader','sass-loader']
-      }
+      },
+      {
+        test: require.resolve("jquery"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["$", "jQuery"], // 将$和jQuery暴露给全局
+        },
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Development',
-      template: './src/pages/index.html',
+      template: './src/pages/home/index.html',
       filename: "index.html"
     }),
   ],

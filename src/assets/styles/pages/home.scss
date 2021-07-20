@@ -1,0 +1,51 @@
+@import '../common/variable.scss';
+.container {
+  background: #fff;
+  background: url("../../images/wallpaper/bg_yourName.jpg") no-repeat center center;
+  background-size: cover;
+  .aside {
+    $asideWidthNum: 400;
+    $asideTranTime: 0.5s;
+    $arrowTranTime: 0.5s;
+    @mixin asideTran () {
+      transition: left $asideTranTime ease-in-out;
+    }
+    @mixin arrowTran () {
+      transition: transform $arrowTranTime ease-in-out;
+    }
+    left: px2(-$asideWidthNum);
+    top: 0;
+    width: px2($asideWidthNum);
+    background: rgba(0, 0, 0, 0.5);
+    @include asideTran;
+    .btn-arrow-right {
+      right: px2(-23);
+      top: 0;
+      width: px2(24);
+      height: px2(24);
+      background: url("../../images/common/icon_arrow_right.png") no-repeat center center;
+      background-size: 100% auto;
+      transform-origin: left center;
+      @include arrowTran;
+    }
+
+    .aside-header {
+      text-align: center;
+      .avatar-img {
+        width: px2(60);
+        height: px2(60);
+        //border-radius: 50%;
+        //overflow: hidden;
+      }
+    }
+
+    &.showAside {
+      left: 0;
+      @include asideTran;
+      .btn-arrow-right {
+        transform: rotate(0.5turn);
+        @include arrowTran;
+      }
+    }
+  }
+}
