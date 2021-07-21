@@ -1,18 +1,37 @@
 @import '../common/variable.scss';
+$asideWidthNum: 400;
+$asideTranTime: 0.5s;
+$arrowTranTime: 0.5s;
+@mixin asideTran () {
+  transition: left $asideTranTime ease-in-out;
+}
+@mixin arrowTran () {
+  transition: transform $arrowTranTime ease-in-out;
+}
+@mixin mainTran () {
+  transition: padding-left $asideTranTime ease-in-out;
+}
+
 .container {
   background: #fff;
-  background: url("../../images/wallpaper/bg_yourName.jpg") no-repeat center center;
+  background: url("../../images/wallpaper/bg_yourName.jpg") no-repeat left top;
   background-size: cover;
+
+  &.showAside {
+    .aside {
+      left: 0;
+      @include asideTran;
+      .btn-arrow-right {
+        transform: rotate(0.5turn);
+        @include arrowTran;
+      }
+    }
+    .main {
+      padding-left: px2($asideWidthNum);
+      @include mainTran;
+    }
+  }
   .aside {
-    $asideWidthNum: 400;
-    $asideTranTime: 0.5s;
-    $arrowTranTime: 0.5s;
-    @mixin asideTran () {
-      transition: left $asideTranTime ease-in-out;
-    }
-    @mixin arrowTran () {
-      transition: transform $arrowTranTime ease-in-out;
-    }
     left: px2(-$asideWidthNum);
     top: 0;
     width: px2($asideWidthNum);
@@ -34,17 +53,21 @@
       .avatar-img {
         width: px2(60);
         height: px2(60);
-        //border-radius: 50%;
-        //overflow: hidden;
+        border-radius: 50%;
+        overflow: hidden;
       }
     }
+  }
 
-    &.showAside {
-      left: 0;
-      @include asideTran;
-      .btn-arrow-right {
-        transform: rotate(0.5turn);
-        @include arrowTran;
+  .main {
+    padding-left: 0;
+    @include mainTran;
+    background-color: rgba(72, 61, 139, 0.5);
+    .main-container {
+      .main-title {
+        line-height: px2(50);
+        text-align: center;
+        color: #fff;
       }
     }
   }

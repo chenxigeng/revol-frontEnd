@@ -17,6 +17,11 @@ module.exports = {
         test: /\.scss/,
         use: ['style-loader','css-loader','sass-loader']
       },
+      //将 HTML 导出为字符串
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
       {
         test: require.resolve("jquery"),
         loader: "expose-loader",
