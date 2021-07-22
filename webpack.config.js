@@ -6,6 +6,12 @@ module.exports = {
   entry: {
     index: './src/assets/scripts/pages/index.js'
   },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'images/[hash][ext][query]',
+    clean: true,
+  },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
@@ -23,6 +29,10 @@ module.exports = {
         loader: 'html-loader',
       },
       {
+        test: /\.(png|jpg|gif)$/,
+        type: 'asset/resource'
+      },
+      {
         test: require.resolve("jquery"),
         loader: "expose-loader",
         options: {
@@ -37,10 +47,5 @@ module.exports = {
       template: './src/pages/home/index.html',
       filename: "index.html"
     }),
-  ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  }
+  ]
 };
