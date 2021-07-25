@@ -1,3 +1,5 @@
+/*引入思源字体*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100&display=swap');
 html {
   overflow: hidden;
 }
@@ -19,8 +21,8 @@ h1, h2, h3, h4, h4, h5 {
 }
 body {
   background-color:#FFFFFF;
-  color:#666666;
-  font-family:Helvetica,Arial,sans-serif;
+  color:#fff;
+  font-family:'Noto Sans SC',Helvetica,Arial,sans-serif;
   font-size: 14px;
   text-align: left;
 }

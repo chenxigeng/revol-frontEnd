@@ -1,4 +1,4 @@
-@import '../common/variable.scss';
+@import '../../assets/styles/common/variable.scss';
 $asideWidthNum: 400;
 $asideTranTime: 0.5s;
 $arrowTranTime: 0.5s;
@@ -14,7 +14,7 @@ $arrowTranTime: 0.5s;
 
 .container {
   background: #fff;
-  background: url("../../images/wallpaper/bg_yourName.jpg") no-repeat left top;
+  background: url("../../assets/images/wallpaper/bg_yourName.jpg") no-repeat left top;
   background-size: cover;
 
   &.showAside {
@@ -26,10 +26,10 @@ $arrowTranTime: 0.5s;
         @include arrowTran;
       }
     }
-    .main {
-      padding-left: px2($asideWidthNum);
-      @include mainTran;
-    }
+    //.main {
+    //  padding-left: px2($asideWidthNum);
+    //  @include mainTran;
+    //}
   }
   .aside {
     left: px2(-$asideWidthNum);
@@ -42,13 +42,14 @@ $arrowTranTime: 0.5s;
       top: 0;
       width: px2(24);
       height: px2(24);
-      background: url("../../images/common/icon_arrow_right.png") no-repeat center center;
+      background: url("../../assets/images/common/icon_arrow_right.png") no-repeat center center;
       background-size: 100% auto;
       transform-origin: left center;
       @include arrowTran;
     }
 
     .aside-header {
+      margin-top: px2(20);
       text-align: center;
       .avatar-img {
         width: px2(60);
@@ -56,18 +57,46 @@ $arrowTranTime: 0.5s;
         border-radius: 50%;
         overflow: hidden;
       }
+      .avatar-name {
+        font-size: px2(20)
+      }
     }
   }
 
   .main {
-    padding-left: 0;
-    @include mainTran;
+    //padding-left: 0;
+    //@include mainTran;
     background-color: rgba(72, 61, 139, 0.5);
     .main-container {
+      //min-width: px2(1280);
       .main-title {
-        line-height: px2(50);
+        line-height: px2(100);
+        font-size: px2(40);
         text-align: center;
         color: #fff;
+      }
+
+      .timeDisplay-box {
+        @keyframes ani-colon {
+          from,50% {
+            opacity: 0;
+          }
+          50%, to {
+            opacity: 1;
+          }
+        }
+        .text-time {
+          text-align: center;
+          font-size: px2(180);
+          font-weight: bold;
+          span {
+            animation: ani-colon 2s linear infinite;
+          }
+        }
+        .text-date {
+          text-align: center;
+          font-size: px2(30);
+        }
       }
     }
   }
