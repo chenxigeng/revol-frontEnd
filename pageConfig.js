@@ -5,7 +5,7 @@ module.exports = {
     {
       title: 'Revol的空间',
       template: path.resolve(__dirname, './src/pages/home/index.html'),
-      filename: "pages/index.html"
+      filename: "index.html"
     }
   ]
 }
