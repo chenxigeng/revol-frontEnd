@@ -88,6 +88,7 @@ module.exports = {
   // 只会在内存中编译打包、不会有任何打包
   devServer: {
     contentBase: path.resolve(__dirname, 'dist/pages'),
-    compress: true
+    compress: true,
+    port: 8090
   },
 };
