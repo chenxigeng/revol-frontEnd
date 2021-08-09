@@ -20,7 +20,7 @@ module.exports = {
     filename: 'scripts/[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash:10][ext][query]', // 设置图片资源的输出位置
-    clean: true,
+    clean: true
   },
   module: {
     rules: [

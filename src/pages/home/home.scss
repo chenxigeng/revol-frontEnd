@@ -11,11 +11,29 @@ $arrowTranTime: 0.5s;
 @mixin mainTran () {
   transition: padding-left $asideTranTime ease-in-out;
 }
+@mixin bg ($imgPath) {
+  background: url("../../assets/images/#{$imgPath}") no-repeat center center;
+  background-size: 100% auto;
+}
+@mixin dl () {
+  display: inline-block;
+  vertical-align: middle;
+}
+@mixin df () {
+  display: flex;
+  align-items: center;
+}
+@mixin giveEllipsis () {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .container {
   background: #fff;
   background: url("../../assets/images/wallpaper/bg_yourName.jpg") no-repeat left top;
   background-size: cover;
+  text-overflow: ellipsis;
 
   &.showAside {
     .aside {
@@ -42,8 +60,7 @@ $arrowTranTime: 0.5s;
       top: 0;
       width: px2(24);
       height: px2(24);
-      background: url("../../assets/images/common/icon_arrow_right.png") no-repeat center center;
-      background-size: 100% auto;
+      @include bg('common/icon_arrow_right.png');
       transform-origin: left center;
       @include arrowTran;
     }
@@ -61,6 +78,51 @@ $arrowTranTime: 0.5s;
         font-size: px2(20)
       }
     }
+    .list-box {
+      max-height: px2(400);
+      margin-top: px2(60);
+      overflow: auto;
+      .list-item {
+        padding: 0 px2(20);
+        border: px2(1) solid transparent;
+        .item-content {
+          position: relative;
+          height: px2(60);
+          line-height: px2(60);
+          padding-left: px2(40);
+          overflow: hidden;
+          .icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: px2(24);
+            height: px2(24);
+            &.i-slideShow {
+              top: 55%;
+              @include bg('aside/icon_slideShow.png');
+            }
+          }
+          .item-text {
+            @include dl;
+            @include giveEllipsis;
+            width: 100%;
+            font-size: px2(20);
+          }
+        }
+        &:hover {
+          border: px2(1) solid $blue;
+          box-shadow: px2(5) px2(2) px2(10) rgba(255,255,255,0.2);
+          transition: border 0.5s linear;
+          .item-content {
+            .item-text {
+              transform: translateX(px2(30));
+              transition: all 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
   }
 
   .main {
@@ -73,7 +135,7 @@ $arrowTranTime: 0.5s;
         line-height: px2(100);
         font-size: px2(40);
         text-align: center;
-        color: #fff;
+        color: $blue;
       }
 
       .timeDisplay-box {
