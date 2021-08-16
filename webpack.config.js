@@ -3,19 +3,28 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const pagesConfig = require('./pageConfig')
 
-function getHtmlWebpackPlugin () {
-  let result = []
-  pagesConfig.pages.forEach(e => {
-    result.push(new HtmlWebpackPlugin(e))
-  })
-  return result
-}
+let HTMLPlugins = [];
+// 入口文件集合
+let Entries = {};
+pagesConfig.entries.forEach(page => {
+  let htmlPlugin = new HtmlWebpackPlugin({
+    //根据模板插入css/js等生成最终HTML
+    filename: page.filename, //生成的html存放路径，相对于path
+    template: page.template, //html模板路径
+    title: page.title,
+    minify: false,
+    inject: "body", //js插入的位置，true/'head'/'body'/false
+    hash: true, //为静态资源生成hash值
+    chunks: [page.name], //需要引入的chunk，不配置就会引入所有页面的资源
+  });
+
+  HTMLPlugins.push(htmlPlugin);
+  Entries[page.name] = page.entry;
+})
 
 module.exports = {
   mode: 'development',
-  entry: {
-    index: './src/pages/home/index.js'
-  },
+  entry: Entries,
   output: {
     filename: 'scripts/[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -60,7 +69,7 @@ module.exports = {
     ]
   },
   plugins: [
-    ...getHtmlWebpackPlugin(),
+    ...HTMLPlugins,
     new MiniCssExtractPlugin({
       // 与 webpackOptions.output 中的选项相似
       // 所有的选项都是可选的
