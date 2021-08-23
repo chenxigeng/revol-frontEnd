@@ -1,0 +1,29 @@
+@import '../../assets/styles/common/variable.scss';
+
+.container {
+  background: url('../../assets/images/wallpaper/bg_tlw_003.jpg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(0.9);
+  .menu-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: px2(900);
+    height: px2(600);
+    padding: px2(60);
+    background-color: rgba(62,192,239, 0.3);
+    border-radius: px2(10);
+    .menu-title {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: px2(60);
+      line-height: px2(60);
+      font-size: px2(40);
+      text-align: center;
+    }
+    .menu-content {}
+  }
+}

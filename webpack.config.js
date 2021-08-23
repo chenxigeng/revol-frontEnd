@@ -96,7 +96,7 @@ module.exports = {
   // 开发服务器 devServer: 用来自动化（自动编译、自动打开浏览器，自动刷新浏览器）
   // 只会在内存中编译打包、不会有任何打包
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist/pages'),
+    contentBase: path.resolve(__dirname, 'dist'),
     compress: true,
     port: 8090
   },

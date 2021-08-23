@@ -4,17 +4,17 @@ module.exports = {
   entries: [
     {
       title: "主页",
-      name: "index",
+      name: "home",
       entry: './src/pages/home/index.js',
       template: path.resolve(__dirname, './src/pages/home/index.html'),
       filename: "./index.html",
     },
     {
-      title: "Test",
-      name: "test",
-      entry: './src/pages/test/index.js',
-      template: path.resolve(__dirname, './src/pages/test/index.html'),
-      filename: "./test.html",
+      title: "Demo",
+      name: "demo",
+      entry: './src/pages/demo/demo.js',
+      template: path.resolve(__dirname, './src/pages/demo/demo.html'),
+      filename: "./demo.html",
     },
   ],
 };

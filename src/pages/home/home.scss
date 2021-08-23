@@ -30,7 +30,6 @@ $arrowTranTime: 0.5s;
 }
 
 .container {
-  background: #fff;
   background: url("../../assets/images/wallpaper/bg_yourName.jpg") no-repeat left top;
   background-size: cover;
   text-overflow: ellipsis;
@@ -108,6 +107,7 @@ $arrowTranTime: 0.5s;
             @include giveEllipsis;
             width: 100%;
             font-size: px2(20);
+            color: #fff;
           }
         }
         &:hover {
@@ -152,7 +152,7 @@ $arrowTranTime: 0.5s;
           font-size: px2(180);
           font-weight: bold;
           span {
-            animation: ani-colon 2s linear infinite;
+            //animation: ani-colon 2s linear infinite;
           }
         }
         .text-date {

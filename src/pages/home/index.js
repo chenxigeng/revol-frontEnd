@@ -42,23 +42,25 @@ function timeDisplayInit () {
     6: '六',
   }
 
+  function showTime () {
+    let date = new Date()
+    let _hour = date.getHours() > 9 ? date.getHours() : ('0' + date.getHours())
+    let _minute = date.getMinutes() > 9 ? date.getMinutes() : ('0' + date.getMinutes())
+    let _second = date.getSeconds() > 9 ? date.getSeconds() : ('0' + date.getSeconds())
+    let _year = date.getFullYear()
+    let _month = date.getMonth() + 1
+    let _day = date.getDate()
+    let _week = date.getDay()
+
+    let timeStr = `${_hour}<span>:</span>${_minute}<span>:</span>${_second}`
+    let dateStr = `${_year}年${_month}月${_day}日 星期${weekEnum[_week]}`
+
+    El_timeDisplay_time.html(timeStr)
+    El_timeDisplay_date.html(dateStr)
+  }
+  showTime()
   clearInterval(timer)
   return function () {
-    timer = setInterval(() => {
-      let date = new Date()
-      let _hour = date.getHours() > 9 ? date.getHours() : ('0' + date.getHours())
-      let _minute = date.getMinutes() > 9 ? date.getMinutes() : ('0' + date.getMinutes())
-      let _second = date.getSeconds() > 9 ? date.getSeconds() : ('0' + date.getSeconds())
-      let _year = date.getFullYear()
-      let _month = date.getMonth() + 1
-      let _day = date.getDate()
-      let _week = date.getDay()
-
-      let timeStr = `${_hour}<span>:</span>${_minute}<span>:</span>${_second}`
-      let dateStr = `${_year}年${_month}月${_day}日 星期${weekEnum[_week]}`
-
-      El_timeDisplay_time.html(timeStr)
-      El_timeDisplay_date.html(dateStr)
-    }, 1000)
+    timer = setInterval(showTime, 1000)
   }
 }
