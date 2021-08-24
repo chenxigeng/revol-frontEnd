@@ -1,9 +1,31 @@
 @import '../../assets/styles/common/variable.scss';
 
+@keyframes ani-menuBox {
+  to {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: px2(300);
+    padding: px2(60) px2(20);
+    transform: translate(0, 0);
+    border-radius: 0;
+  }
+}
+
+.btn-toggle {
+  margin: px2(50) auto;
+  width: px2(60);
+  line-height: px2(30);
+  height: px2(30);
+  text-align: center;
+  background-color: #f14b72;
+}
+
 .container {
   background: url('../../assets/images/wallpaper/bg_tlw_003.jpg') no-repeat center center;
   background-size: cover;
   filter: brightness(0.9);
+  overflow: hidden;
   .menu-box {
     position: absolute;
     left: 50%;
@@ -12,8 +34,9 @@
     width: px2(900);
     height: px2(600);
     padding: px2(60);
-    background-color: rgba(62,192,239, 0.3);
+    background-color: rgba(62,192,239, 0.5);
     border-radius: px2(10);
+    //animation: ani-menuBox 0.8s ease-in-out forwards;
     .menu-title {
       position: absolute;
       left: 0;
@@ -24,6 +47,7 @@
       font-size: px2(40);
       text-align: center;
     }
-    .menu-content {}
+    .menu-content {
+    }
   }
 }
