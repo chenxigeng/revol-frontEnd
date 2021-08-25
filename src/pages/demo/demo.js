@@ -2,8 +2,16 @@ import '../../assets/scripts/common/common.js'
 import './demo.scss'
 import $ from 'jquery';
 
-let el_btnToggle = $('.btn-toggle')
+let El_btnToggle = $('.btn-toggle')
+let El_menuBox = $('.menu-box')
 
-el_btnToggle.click(() => {
-  console.log('dfgggg')
-})
+init()
+
+function init () {
+  El_btnToggle.on('click', toggleMenuBox)
+}
+
+function toggleMenuBox () {
+  El_menuBox.addClass('addTransition')
+  El_menuBox.toggleClass('moveLeft')
+}

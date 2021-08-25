@@ -1,17 +1,5 @@
 @import '../../assets/styles/common/variable.scss';
 
-@keyframes ani-menuBox {
-  to {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: px2(300);
-    padding: px2(60) px2(20);
-    transform: translate(0, 0);
-    border-radius: 0;
-  }
-}
-
 .btn-toggle {
   margin: px2(50) auto;
   width: px2(60);
@@ -22,7 +10,7 @@
 }
 
 .container {
-  background: url('../../assets/images/wallpaper/bg_tlw_003.jpg') no-repeat center center;
+  background: url('../../assets/images/wallpaper/hjw-001.jpg') no-repeat center center;
   background-size: cover;
   filter: brightness(0.9);
   overflow: hidden;
@@ -34,9 +22,20 @@
     width: px2(900);
     height: px2(600);
     padding: px2(60);
-    background-color: rgba(62,192,239, 0.5);
+    background-color: rgba(0,0,0, 0.4);
     border-radius: px2(10);
-    //animation: ani-menuBox 0.8s ease-in-out forwards;
+    &.addTransition {
+      transition: all ease-in-out .5s;
+    }
+    &.moveLeft {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: px2(300);
+      padding: px2(60) px2(20);
+      transform: translate(0, 0);
+      border-radius: 0;
+    }
     .menu-title {
       position: absolute;
       left: 0;
